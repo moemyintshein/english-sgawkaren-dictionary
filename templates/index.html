@@ -1,103 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Eng to Sgaw Dictionary</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-  margin-left:-5px;
-  margin-right:-5px;
-}
-  
-.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-td {
-  text-align: left;
-  padding: 16px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-h2 {
-  color: blue;
-  font-family: verdana;
-  font-size: 200%;
-  text-align: center;
-}
-p {
-  color: red;
-  font-family: courier;
-  font-size: 160%;
-  padding: 12px 20px;
-}
-input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-input[type=submit] {
-  width: 50%;
-  padding: 12px 20px;
-  margin: 6px 0;
-  box-sizing: border-box;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng-SgawKaren Dictionary</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1 class="text-center">English-SgawKaren Dictionary</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="search-form" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="search-input" name="word" placeholder="Enter a word">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="mt-4">
+            <!-- Dictionary results will be displayed here -->
+            {% if word %}
+            <p>{{ word }} : {{ definition }}</p>
+            {% endif %}
+        </div>
+    </div>
 
-<h2>English-SgawKaren Dictionary</h2>
-<h2>အင်္ဂလိပ်-စကောကရင် အဘိဓာန်</h2>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="row">
-  <div class="column">
-    <table>
-      <tr>
-        <td>
-          <form method="post">
-            <input type="text" id="searchInput" name="word" placeholder="Enter a word" required>
-            <input type="submit" value="Search">
-          </form>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-    <table>
-      <tr>
-        <td>
-          {% if word %}
-          <p>{{ word }} : {{ definition }}</p>
-          {% endif %}
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
+    <!-- Custom JavaScript for handling form submission and displaying results -->
+<!--     <script>
+        document.getElementById("search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            // You can add AJAX code here to fetch and display dictionary results
+            // For simplicity, we will just show a dummy result
+            document.getElementById("result").innerHTML = "<p>Definition: A statement that explains the meaning of a word or phrase.</p>";
+        });
+    </script> -->
 </body>
 </html>
