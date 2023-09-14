@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eng to Sgaw Dictionary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        h2 {
+          color: blue;
+          font-family: verdana;
+          font-size: 200%;
+          text-align: center;
+        }
+        p {
+          color: red;
+          font-family: courier;
+          font-size: 160%;
+        }
+        div.container1{
+            padding: 0px;
+            margin: 50px 50px;            
+        }
+        div.container2{
+            padding: 50px;
+            margin: 30px 30px;            
+        }
+        div.container3 {
+            padding: 50px;
+            margin: 50px 50px;
+            /* border: 3px solid powderblue; */
+        }
+        div.container {
+            padding: 50px;
+            margin: 50px 50px;
+            border: 3px solid powderblue;
+        }
+        .center {
+             margin-left: auto;
+             margin-right: auto;
+        }
+/*         table {
+            padding: 10px 50px 10px 200px;
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <h2>English-SgawKaren Dictionary</h2>
+        <h2>အင်္ဂလိပ်-စကောကရင် အဘိဓာန်</h2>
+    </div>
+    <div class="container2">
+        <table class="center">
+            <tr>
+                <td>
+                    <div class="container3">
+                         <form method="post">
+                             <input type="text" id="searchInput" name="word" placeholder="Enter a word" required>
+                             <input type="submit" value="Search">
+                         </form>
+                     </div>
+                </td>    
+            
+    {% if word %}
+                <td>
+                    <div class="container">
+                        <p>{{ word }} : {{ definition }}</p>
+                    </div>
+                </td>
+            </tr>
+    {% endif %}
+        </table>
+    </div>
+</body>
+</html>
+
